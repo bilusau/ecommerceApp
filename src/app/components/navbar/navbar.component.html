@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">EcommerceApp</a>
+    <button class="navbar-toggler" (click)=toggleNavBar() type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" [class.show]="isOpen">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/account" routerLinkActive="active" *ngIf="isUser">Admin</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/pricing" routerLinkActive="active" *ngIf="isUser">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cart" routerLinkActive="active" *ngIf="isUser">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/orders" routerLinkActive="active" *ngIf="isUser">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/products" routerLinkActive="active"  *ngIf="!isUser">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active"  *ngIf="!isUser">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup" routerLinkActive="active"  *ngIf="!isUser">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-danger" routerLink="/logout" routerLinkActive="active" (click)="logout()" *ngIf="isUser">Logout</a>
+          </li>
+      </ul>
+    </div>
+  </nav>

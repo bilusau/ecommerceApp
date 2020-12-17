@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h2>Sign Up</h2>
+
+            <form #f="ngForm" (ngSubmit)="signup(f)">
+                <input ngModel #name="ngModel" name="name" type="text" class="form-control" placeholder="Name" required><br>
+                <p class="alert alert-danger" *ngIf="name.invalid && name.touched">Name is required</p><br>
+                <input ngModel #email="ngModel" name="email" type="email" class="form-control" placeholder="Email" required email><br>
+                <p class="alert alert-danger" *ngIf="email.errors?.required && email.touched">Email is required</p><br>
+                <p class="alert alert-danger" *ngIf="email.errors?.email && email.touched">Email format is not correct</p><br>
+                <input ngModel #password="ngModel" name="password" type="password" class="form-control" placeholder="Password" required minlength="6"><br>
+                <p class="alert alert-danger" *ngIf="password.errors?.required && password.touched">Password is required</p><br>
+                <p class="alert alert-danger" *ngIf="password.errors?.minlength && password.touched">Password must be 6 charecter</p><br>
+                <input ngModel #confirmpassword="ngModel" name="confirmpassword" type="password" class="form-control" placeholder="Confirm Password" required><br>
+                <p class="alert alert-danger" *ngIf="confirmpassword.errors?.required && confirmpassword.touched">Confirm Password is required</p><br>
+                <p class="alert alert-danger" *ngIf="password.value !==confirmpassword.value && confirmpassword.touched">Confirm Password should be same as password</p><br>
+                <input ngModel #address="ngModel" name="address" type="text" class="form-control" placeholder="Address" required><br>
+                <p class="alert alert-danger" *ngIf="address.invalid && address.touched">Address is required</p><br>
+
+                <button class="btn btn-primary" [disabled]="f.invalid">Creat an Account</button>
+            </form>           
+        </div>
+        <div class="alert alert-danger" *ngIf="errorMsg">{{ errorMsg }}</div>
+    </div>
+</div>

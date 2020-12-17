@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wdscontact-39dad": {
+      "hosting": {
+        "EcommerceApp": [
+          "wdscontact-39dad"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ecommerceapp-8c4c1"
+  }
+}

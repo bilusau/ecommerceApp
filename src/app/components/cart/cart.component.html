@@ -1,0 +1,25 @@
+<table class="table table-striped table-dark">
+    <thead>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Product Amount</th>
+        <th>Total</th>
+        <th>Options</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of Shoppingcart; index as i" ng-init="$parent.total=total+product.amount">
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td> <input type="number" placeholder="AMount (kg)" [(ngModel)]="product.amount" min="0"> </td>
+            <td>{{ product.price * product.amount | currency :'INR' }}</td>
+            <td>
+                <button type="button" class="btn btn-primary" (click)="updateCart(i)"> Save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteCart(i)"> Delete</button>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="5">{{ total }}</td>
+        </tr>
+    </tbody>
+</table>

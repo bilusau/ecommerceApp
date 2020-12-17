@@ -1,0 +1,22 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col col-12">
+            <h2 class="text-center">Login</h2>
+            <form #f="ngForm" (ngSubmit)="login(f)">
+
+                <input ngModel #email="ngModel" type="email" name="email" class="form-control" required email placeholder="Enter Email" autocomplete="off"><br>
+                <div class="alert alert-danger" *ngIf="email.errors?.required && email.touched">Email is required</div>
+                <div class="alert alert-danger" *ngIf="email.errors?.email && email.touched">This is not the correct email format</div>
+
+                <input ngModel #password="ngModel" type="password" name="password" class="form-control" required minlength="6" autocomplete="new-password"  placeholder="Enter Password"><br>
+                <div class="alert alert-danger" *ngIf="password.errors?.required && password.touched">Password is required</div>
+                <div class="alert alert-danger" *ngIf="password.errors?.minlength && password.touched">Password should be 6 charecter</div>
+
+                <button class="btn btn-primary" [disabled]="f.invalid" (click)="login(f)">Login</button>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>
